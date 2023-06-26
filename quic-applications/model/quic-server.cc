@@ -150,7 +150,7 @@ QuicServer::StartApplication (void)
         }
     }
 
-  m_socket6->Listen ();
+  m_socket->Listen ();
   m_socket6->SetRecvCallback (MakeCallback (&QuicServer::HandleRead, this));
 
 }
