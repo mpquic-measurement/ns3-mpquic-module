@@ -128,9 +128,11 @@ QuicServer::StartApplication (void)
       InetSocketAddress local = InetSocketAddress (Ipv4Address::GetAny (),
                                                    m_port);
       if (m_socket->Bind (local) == -1)
-        {
-          NS_FATAL_ERROR ("Failed to bind socket");
-        }
+      {
+        NS_FATAL_ERROR ("Failed to bind socket");
+      } else {
+        std::cout << "QuicServer m_socket->Bind succeed" << std::endl;
+      }
     }
 
   m_socket->Listen ();
@@ -148,7 +150,7 @@ QuicServer::StartApplication (void)
         }
     }
 
-  m_socket->Listen ();
+  m_socket6->Listen ();
   m_socket6->SetRecvCallback (MakeCallback (&QuicServer::HandleRead, this));
 
 }

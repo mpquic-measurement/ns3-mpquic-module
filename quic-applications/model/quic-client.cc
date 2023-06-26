@@ -128,6 +128,9 @@ QuicClient::StartApplication (void)
           if (m_socket->Bind () == -1)
             {
               NS_FATAL_ERROR ("Failed to bind socket");
+            } else {
+              std::cout << "QuicClient m_socket->Bind succeed" << std::endl;
+              std::cout << "Ipv4Address Remote address: " << m_peerAddress << ", port " << m_peerPort << std::endl;
             }
           m_socket->Connect (InetSocketAddress (Ipv4Address::ConvertFrom (m_peerAddress), m_peerPort));
         }
@@ -144,6 +147,9 @@ QuicClient::StartApplication (void)
           if (m_socket->Bind () == -1)
             {
               NS_FATAL_ERROR ("Failed to bind socket");
+            } else {
+              std::cout << "QuicClient m_socket->Bind succeed" << std::endl;
+              std::cout << "InetSocketAddress Remote address: " << m_peerAddress << std::endl;
             }
           m_socket->Connect (m_peerAddress);
         }
